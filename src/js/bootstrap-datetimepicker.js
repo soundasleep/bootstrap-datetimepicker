@@ -777,6 +777,11 @@ THE SOFTWARE.
             if (!picker.isInput) {
                 $(document).on(
                     'mousedown.datetimepicker' + picker.id, $.proxy(picker.hide, this));
+                $(document).keyup(function (e) {
+                    if (e.keyCode == 27) { // escape key maps to keycode `27`
+                        picker.hide();
+                    }
+                });
             }
         },
 
